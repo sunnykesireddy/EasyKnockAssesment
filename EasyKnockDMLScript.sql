@@ -1,14 +1,14 @@
-Create database EasyKnockTest
+CREATE DATABASE EasyKnockTest;
 
 USE EasyKnockTest;
-
 
 CREATE TABLE City(
     ID int NOT NULL,
 	City varchar(100) NULL,
 	CREATEDDATE datetime NULL,
 	 UPDATEDDATE datetime NULL
-	)
+);
+
 
 CREATE TABLE Faculty(
 
@@ -18,10 +18,9 @@ CREATE TABLE Faculty(
    StartDate DATETIME,
    CREATEDDATE DATETIME,
    UPDATEDTIME DATETIME
-
 );
 
-CREATE table SchoolDistrict(
+CREATE TABLE  SchoolDistrict(
 
     Id int  PRIMARY KEY,
 	DistrictId INT NOT NULL,
@@ -31,7 +30,7 @@ CREATE table SchoolDistrict(
 );
 
 
-CREATE TABLE School(
+CREATE TABLE  School(
 
 	 SchoolId int NOT NULL  PRIMARY KEY,
 	 SchoolName varchar(50) NOT NULL,
@@ -39,25 +38,22 @@ CREATE TABLE School(
 	 DistrictId int NOT NULL,
 	 CREATEDDATE DATETIME,
      UPDATEDTIME DATETIME
-	 FOREIGN KEY (DistrictId) REFERENCES SchoolDistrict(Id),
-
+	 FOREIGN KEY (DistrictId) REFERENCES SchoolDistrict(Id)
 	);
 
 	 
-	 CREATE TABLE FacultySchool
-	 (
-	    SchoolId int NOT NULL,
-		FacultyId int NOT NULL,
-		PRIMARY KEY(SchoolId, FacultyId),
-		FOREIGN KEY (SchoolId) REFERENCES School(SchoolId),
-		FOREIGN KEY (FacultyId) REFERENCES Faculty(FacultyId),
-		CREATEDDATE DATETIME,
-		UPDATEDDATE DATETIME
-		);
+CREATE TABLE  FacultySchool
+ (
+    SchoolId int NOT NULL,
+    FacultyId int NOT NULL,
+    PRIMARY KEY(SchoolId, FacultyId),
+    FOREIGN KEY (SchoolId) REFERENCES School(SchoolId),
+    FOREIGN KEY (FacultyId) REFERENCES Faculty(FacultyId),
+    CREATEDDATE DATETIME,
+    UPDATEDDATE DATETIME
+ );
 
-
-
-CREATE TABLE HouseAddress(
+CREATE TABLE  HouseAddress(
 
     ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
     ZipCode varchar(10)  NOT NULL,
@@ -67,16 +63,12 @@ CREATE TABLE HouseAddress(
 	City varchar(100) NOT NULL,
 	CreatedDate datetime,
 	UpdatedDate datetime
-
-	
 );
 
-CREATE TABLE SchoolDistrictsInCity(
+CREATE TABLE  SchoolDistrictsInCity(
 
     CityId int NOT NULL,
 	SchoolDistrictId int NOT NULL,
 	Createddate datetime,
 	Updateddate datetime
-	
-	)
-
+);
